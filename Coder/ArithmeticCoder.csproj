@@ -1,0 +1,36 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="obj\Debug\net6.0\.NETCoreApp,Version=v6.0.AssemblyAttributes.cs" />
+    <Compile Include="obj\Debug\net6.0\ArithmeticCoder.AssemblyInfo.cs" />
+    <Compile Include="obj\Debug\net6.0\ArithmeticCoder.GlobalUsings.g.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="bin\Debug\net6.0\ArithmeticCoder.deps.json" />
+    <None Include="bin\Debug\net6.0\ArithmeticCoder.dll" />
+    <None Include="bin\Debug\net6.0\ArithmeticCoder.pdb" />
+    <None Include="obj\ArithmeticCoder.csproj.nuget.dgspec.json" />
+    <None Include="obj\ArithmeticCoder.csproj.nuget.g.props" />
+    <None Include="obj\ArithmeticCoder.csproj.nuget.g.targets" />
+    <None Include="obj\Debug\net6.0\ArithmeticCoder.AssemblyInfoInputs.cache" />
+    <None Include="obj\Debug\net6.0\ArithmeticCoder.assets.cache" />
+    <None Include="obj\Debug\net6.0\ArithmeticCoder.csproj.AssemblyReference.cache" />
+    <None Include="obj\Debug\net6.0\ArithmeticCoder.csproj.CoreCompileInputs.cache" />
+    <None Include="obj\Debug\net6.0\ArithmeticCoder.csproj.FileListAbsolute.txt" />
+    <None Include="obj\Debug\net6.0\ArithmeticCoder.dll" />
+    <None Include="obj\Debug\net6.0\ArithmeticCoder.GeneratedMSBuildEditorConfig.editorconfig" />
+    <None Include="obj\Debug\net6.0\ArithmeticCoder.pdb" />
+    <None Include="obj\Debug\net6.0\refint\ArithmeticCoder.dll" />
+    <None Include="obj\Debug\net6.0\ref\ArithmeticCoder.dll" />
+    <None Include="obj\project.assets.json" />
+    <None Include="obj\project.nuget.cache" />
+  </ItemGroup>
+
+</Project>
