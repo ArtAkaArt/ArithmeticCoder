@@ -14,6 +14,14 @@ public class Coder
             var currentLength = end - start;
             for (int figure = 0; figure < coeffs.Length; figure++)
             {
+                if (currentLength < 10)
+                {
+                    start = start % 10 * 111111111;
+                    end = end % 10 * 111111111;
+                    codedField = codedField % 10 * 111111111;
+                    currentLength = end - start;
+                }
+
                 var buffer = currentLength / coeffsTotal * (ulong)coeffs[..(figure + 1)].Sum() + start;
                 if (codedField >= buffer)
                     continue;
@@ -25,11 +33,11 @@ public class Coder
                 break;
             }
         }
-        
+
         return result;
     }
 
-    public static ulong Encode(int[] field, params int[] coeffs)
+    public static Result Encode(int[] field, params int[] coeffs)
     {
         if (coeffs.Any(x => x <= 0))
             throw new ArgumentException("Some of coeffs is zero or negative");
@@ -51,6 +59,10 @@ public class Coder
                 start += currentLength / coeffsTotal * (ulong)coeffs[..figure].Sum();
         }
 
-        return start + 1;
+        var codedField = start + 1;
+
+        return Enumerable.SequenceEqual(codedField.Decode(coeffs), field)
+            ? new Result { IsCoded = true, CodedField = codedField }
+            : new Result { IsCoded = false };
     }
 }

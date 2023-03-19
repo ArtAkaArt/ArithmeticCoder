@@ -36,7 +36,7 @@ namespace ArithmeticCoderTests
         public void EqualDistributionInput()
         {
             var codedField = Coder.Encode(field, equalCoeffs);
-            var decodedField = Coder.Decode(codedField, equalCoeffs);
+            var decodedField = Coder.Decode(codedField.CodedField, equalCoeffs);
 
             decodedField.Should().BeEquivalentTo(field);
         }
