@@ -4,7 +4,7 @@ public static class CoderExtensions
 {
     public static Result Encode(this int[] field, int[] coeffs) => Coder.Encode(field, coeffs);
 
-    public static int[] Decode(this ulong[] codedField, int[] coeffs, int fieldLength = 32) =>
+    public static int[] Decode(this ulong[] codedField, int[] coeffs) =>
         Coder.Decode(codedField, coeffs);
 
     public static int[] Decode(this ulong codedField, int[] coeffs, int fieldLength = 32) =>
