@@ -70,7 +70,7 @@ public class Coder
             return new Result { IsSplitted = false, CodedField = new[] { codedField } };
 
         if (!isCoded && field.Length != 32)
-            throw new Exception("Attemption to split on more than two longs");
+            throw new Exception("Unable to code field in two longs");
 
         var firstHalf = field[..(field.Length / 2)].Encode(coeffs);
         var secondHalf = field[(field.Length / 2)..].Encode(coeffs);
