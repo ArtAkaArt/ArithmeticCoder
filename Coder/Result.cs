@@ -1,8 +1,7 @@
-﻿
-namespace ArithmeticCoder;
+﻿namespace ArithmeticCoder;
 
-    public record Result
-    {
-        public bool IsSplitted { get; set; }
-        public ulong[] CodedField { get; set; }
-    }
+public record Result
+{
+    public bool IsSplitted { get; set; }
+    public ulong[] CodedField { get; set; }
+}

@@ -2,7 +2,7 @@
 
 public class Coder
 {
-    public static int[] Decode(ulong codedField, int[] coeffs, int fieldLength)
+    public static int[] Decode(ulong codedField, int[] coeffs, int fieldLength = 32)
     {
         var result = new int[fieldLength];
         var start = ulong.MinValue;
@@ -37,7 +37,7 @@ public class Coder
         return result;
     }
 
-    public static int[] Decode(ulong[] codedField, int[] coeffs, int fieldLength = 32)
+    public static int[] Decode(ulong[] codedField, int[] coeffs)
     {
         var result = Array.Empty<int>();
 
