@@ -35,8 +35,8 @@ namespace ArithmeticCoderTests
         [Test]
         public void EqualDistributionInput()
         {
-            var codedField = Coder.Encode(field, equalCoeffs);
-            var decodedField = Coder.Decode(codedField.CodedField, equalCoeffs);
+            var codedField = field.Encode(equalCoeffs);
+            var decodedField = codedField.Decode(equalCoeffs);
 
             decodedField.Should().BeEquivalentTo(field);
         }
@@ -99,6 +99,17 @@ namespace ArithmeticCoderTests
             var decodedField = codedField.Decode(coefs);
 
             decodedField.Should().BeEquivalentTo(legitField);
+        }
+
+        [Test]
+        public void HeavelyShiftedToLastFigureWithHighFirstCoeff()
+        {
+            var coefs = new int[] { 20, 1, 1, 1, 1 };
+
+            var codedField = sameFiguresField.Encode(coefs);
+            var decodedField = codedField.Decode(coefs);
+
+            decodedField.Should().BeEquivalentTo(sameFiguresField);
         }
     }
 }
