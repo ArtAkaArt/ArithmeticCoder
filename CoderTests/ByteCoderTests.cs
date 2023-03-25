@@ -1,11 +1,11 @@
-using NUnit.Framework;
+﻿using NUnit.Framework;
 using FluentAssertions;
 using ArithmeticCoder;
 
 namespace ArithmeticCoderTests
 {
     [TestFixture]
-    public class LongCoderTests
+    public class ByteCoderTests
     {
         private int[] field;
         private int[] sameFiguresField;
@@ -35,8 +35,8 @@ namespace ArithmeticCoderTests
         [Test]
         public void EqualDistributionInput()
         {
-            var codedField = field.Encode(equalCoeffs);
-            var decodedField = codedField.Decode(equalCoeffs);
+            var codedField = field.ByteEncode(equalCoeffs);
+            var decodedField = codedField.ByteDecode(equalCoeffs);
 
             decodedField.Should().BeEquivalentTo(field);
         }
@@ -46,8 +46,8 @@ namespace ArithmeticCoderTests
         {
             var coefs = new int[] { 1, 1, 1, 1, 50 };
 
-            var codedField = sameFiguresField.Encode(coefs);
-            var decodedField = codedField.Decode(coefs);
+            var codedField = sameFiguresField.ByteEncode(coefs);
+            var decodedField = codedField.ByteDecode(coefs);
 
             decodedField.Should().BeEquivalentTo(sameFiguresField);
         }
@@ -57,8 +57,8 @@ namespace ArithmeticCoderTests
         {
             var coefs = new int[] { 50, 1, 1, 1, 1 };
 
-            var codedField = sameFiguresField.Select(x => x - 4).ToArray().Encode(coefs);
-            var decodedField = codedField.Decode(coefs);
+            var codedField = sameFiguresField.Select(x => x - 4).ToArray().ByteEncode(coefs);
+            var decodedField = codedField.ByteDecode(coefs);
 
             decodedField.Should().BeEquivalentTo(sameFiguresField.Select(x => x - 4).ToArray());
         }
@@ -76,10 +76,8 @@ namespace ArithmeticCoderTests
                 2, 2
             };
 
-            var codedField = legitField.Encode(coefs);
-            var tst = new NoULong(ByteCoder.Encode(legitField, coefs)).ToLong();
-
-            var decodedField = codedField.Decode(coefs);
+            var codedField = legitField.ByteEncode(coefs);
+            var decodedField = codedField.ByteDecode(coefs);
 
             decodedField.Should().BeEquivalentTo(legitField);
         }
@@ -97,8 +95,8 @@ namespace ArithmeticCoderTests
                 4, 3
             };
 
-            var codedField = legitField.Encode(coefs);
-            var decodedField = codedField.Decode(coefs);
+            var codedField = legitField.ByteEncode(coefs);
+            var decodedField = codedField.ByteDecode(coefs);
 
             decodedField.Should().BeEquivalentTo(legitField);
         }
@@ -108,8 +106,8 @@ namespace ArithmeticCoderTests
         {
             var coefs = new int[] { 20, 1, 1, 1, 1 };
 
-            var codedField = sameFiguresField.Encode(coefs);
-            var decodedField = codedField.Decode(coefs);
+            var codedField = sameFiguresField.ByteEncode(coefs);
+            var decodedField = codedField.ByteDecode(coefs);
 
             decodedField.Should().BeEquivalentTo(sameFiguresField);
         }
